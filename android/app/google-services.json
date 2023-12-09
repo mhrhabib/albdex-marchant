@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841347869934",
+    "project_id": "albdex-marchant",
+    "storage_bucket": "albdex-marchant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841347869934:android:6f65e419a7f859e07bd7ff",
+        "android_client_info": {
+          "package_name": "marchant.albdex.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMfqcJPP25tEbIKm43AwsyMqQNqdTslgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
