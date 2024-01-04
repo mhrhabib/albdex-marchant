@@ -12,6 +12,8 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To take Parcel picture this app need access of photo library</string>
 	<key>CFBundleName</key>
 	<string>we_courier_merchant_app</string>
 	<key>CFBundlePackageType</key>
