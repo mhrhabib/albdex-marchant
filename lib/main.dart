@@ -12,7 +12,7 @@ Future<void> main() async {
   final box = GetStorage();
   WidgetsFlutterBinding.ensureInitialized();
   const firebaseOptions = FirebaseOptions(
-    appId: '1:151878495365:android:2510842ed9330bba260dec',
+    appId: '1:841347869934:ios:afebb8dd864db5137bd7ff',
     apiKey: 'AIzaSyDCthiio0WgX1F2CiVlw1Z-kWOKYYi6vQI',
     projectId: 'we-courier-81101',
     messagingSenderId: '151878495365',
