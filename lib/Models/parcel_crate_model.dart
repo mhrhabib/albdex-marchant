@@ -1,12 +1,13 @@
 class ParcelCrateModel {
   ParcelCrateModel({
-      bool? success, 
-      String? message, 
-      Data? data,}){
+    bool? success,
+    String? message,
+    Data? data,
+  }) {
     _success = success;
     _message = message;
     _data = data;
-}
+  }
 
   ParcelCrateModel.fromJson(dynamic json) {
     _success = json['success'];
@@ -30,18 +31,18 @@ class ParcelCrateModel {
     }
     return map;
   }
-
 }
 
 class Data {
   Data({
-      MerchantData? merchant,
-      List<Shops>? shops, 
-      List<DeliveryCharges>? deliveryCharges, 
-      List<CodCharges>? codCharges,
-      List<Packagings>? packagings, 
-      String? fragileLiquid, 
-      List<DeliveryTypes>? deliveryTypes,}){
+    MerchantData? merchant,
+    List<Shops>? shops,
+    List<DeliveryCharges>? deliveryCharges,
+    List<CodCharges>? codCharges,
+    List<Packagings>? packagings,
+    String? fragileLiquid,
+    List<DeliveryTypes>? deliveryTypes,
+  }) {
     _merchant = merchant;
     _shops = shops;
     _deliveryCharges = deliveryCharges;
@@ -49,23 +50,26 @@ class Data {
     _packagings = packagings;
     _fragileLiquid = fragileLiquid;
     _deliveryTypes = deliveryTypes;
-}
+  }
 
   Data.fromJson(dynamic json) {
-    _merchant = json['merchant'] != null ? MerchantData.fromJson(json['merchant']) : null;
+    _merchant = json['merchant'] != null
+        ? MerchantData.fromJson(json['merchant'])
+        : null;
     if (json['shops'] != null) {
       _shops = [];
       json['shops'].forEach((v) {
         _shops?.add(Shops.fromJson(v));
       });
     }
-    if (json['deliveryCharges'] != null && json['deliveryCharges'].length !=0 ) {
+    if (json['deliveryCharges'] != null &&
+        json['deliveryCharges'].length != 0) {
       print(json['deliveryCharges']);
       _deliveryCharges = [];
       json['deliveryCharges'].forEach((v) {
         print('object');
         print(v);
-          _deliveryCharges?.add(DeliveryCharges.fromJson(v));
+        _deliveryCharges?.add(DeliveryCharges.fromJson(v));
       });
     }
     if (json['codCharges'] != null) {
@@ -113,7 +117,8 @@ class Data {
       map['shops'] = _shops?.map((v) => v.toJson()).toList();
     }
     if (_deliveryCharges != null) {
-      map['deliveryCharges'] = _deliveryCharges?.map((v) => v.toJson()).toList();
+      map['deliveryCharges'] =
+          _deliveryCharges?.map((v) => v.toJson()).toList();
     }
     if (_codCharges != null) {
       map['codCharges'] = _codCharges?.map((v) => v.toJson()).toList();
@@ -127,18 +132,18 @@ class Data {
     }
     return map;
   }
-
 }
 
 class DeliveryTypes {
   DeliveryTypes({
-      int? id, 
-      String? key, 
-      String? value,}){
+    int? id,
+    String? key,
+    String? value,
+  }) {
     _id = id;
     _key = key;
     _value = value;
-}
+  }
 
   DeliveryTypes.fromJson(dynamic json) {
     _id = json['id'];
@@ -160,18 +165,18 @@ class DeliveryTypes {
     map['value'] = _value;
     return map;
   }
-
 }
 
 class Packagings {
   Packagings({
-      int? id, 
-      String? name, 
-      String? price,}){
+    int? id,
+    String? name,
+    String? price,
+  }) {
     _id = id;
     _name = name;
     _price = price;
-}
+  }
 
   Packagings.fromJson(dynamic json) {
     _id = json['id'];
@@ -193,16 +198,16 @@ class Packagings {
     map['price'] = _price;
     return map;
   }
-
 }
 
 class CodChargesData {
   CodChargesData({
-      String? name, 
-      String? charge,}){
+    String? name,
+    String? charge,
+  }) {
     _name = name;
     _charge = charge;
-}
+  }
 
   CodChargesData.fromJson(dynamic json) {
     _name = json['name'];
@@ -220,23 +225,23 @@ class CodChargesData {
     map['charge'] = _charge;
     return map;
   }
-
 }
 
 class DeliveryCharges {
   DeliveryCharges({
-      int? id, 
-      String? merchantId, 
-      String? categoryId, 
-      String? deliveryChargeId, 
-      String? category, 
-      String? weight, 
-      String? sameDay, 
-      String? nextDay, 
-      String? subCity, 
-      String? outsideCity, 
-      String? status, 
-      String? statusName,}){
+    int? id,
+    String? merchantId,
+    String? categoryId,
+    String? deliveryChargeId,
+    String? category,
+    String? weight,
+    String? sameDay,
+    String? nextDay,
+    String? subCity,
+    String? outsideCity,
+    String? status,
+    String? statusName,
+  }) {
     _id = id;
     _merchantId = merchantId;
     _categoryId = categoryId;
@@ -249,7 +254,7 @@ class DeliveryCharges {
     _outsideCity = outsideCity;
     _status = status;
     _statusName = statusName;
-}
+  }
 
   DeliveryCharges.fromJson(dynamic json) {
     _id = json['id'];
@@ -271,10 +276,10 @@ class DeliveryCharges {
   String? _deliveryChargeId;
   String? _category;
   String? _weight;
-  String? _sameDay;
-  String? _nextDay;
-  String? _subCity;
-  String? _outsideCity;
+  dynamic _sameDay;
+  dynamic _nextDay;
+  dynamic _subCity;
+  dynamic _outsideCity;
   String? _status;
   String? _statusName;
 
@@ -284,10 +289,10 @@ class DeliveryCharges {
   String? get deliveryChargeId => _deliveryChargeId;
   String? get category => _category;
   String? get weight => _weight;
-  String? get sameDay => _sameDay;
-  String? get nextDay => _nextDay;
-  String? get subCity => _subCity;
-  String? get outsideCity => _outsideCity;
+  dynamic get sameDay => _sameDay;
+  dynamic get nextDay => _nextDay;
+  dynamic get subCity => _subCity;
+  dynamic get outsideCity => _outsideCity;
   String? get status => _status;
   String? get statusName => _statusName;
 
@@ -307,18 +312,18 @@ class DeliveryCharges {
     map['statusName'] = _statusName;
     return map;
   }
-
 }
 
 class Shops {
   Shops({
-      int? id, 
-      String? merchantId, 
-      String? name, 
-      String? contactNo, 
-      String? address, 
-      String? status, 
-      String? defaultShop,}){
+    int? id,
+    String? merchantId,
+    String? name,
+    String? contactNo,
+    String? address,
+    String? status,
+    String? defaultShop,
+  }) {
     _id = id;
     _merchantId = merchantId;
     _name = name;
@@ -326,7 +331,7 @@ class Shops {
     _address = address;
     _status = status;
     _defaultShop = defaultShop;
-}
+  }
 
   Shops.fromJson(dynamic json) {
     _id = json['id'];
@@ -364,21 +369,21 @@ class Shops {
     map['default_shop'] = _defaultShop;
     return map;
   }
-
 }
 
 class MerchantData {
   MerchantData({
-      int? id, 
-      String? userId, 
-      String? businessName, 
-      String? merchantUniqueId, 
-      String? currentBalance, 
-      String? openingBalance, 
-      String? vat,
+    int? id,
+    String? userId,
+    String? businessName,
+    String? merchantUniqueId,
+    String? currentBalance,
+    String? openingBalance,
+    String? vat,
     CodCharges? codCharges,
-      String? status, 
-      String? address,}){
+    String? status,
+    String? address,
+  }) {
     _id = id;
     _userId = userId;
     _businessName = businessName;
@@ -389,7 +394,7 @@ class MerchantData {
     _codCharges = codCharges;
     _status = status;
     _address = address;
-}
+  }
 
   MerchantData.fromJson(dynamic json) {
     _id = json['id'];
@@ -399,7 +404,9 @@ class MerchantData {
     _currentBalance = json['current_balance'];
     _openingBalance = json['opening_balance'];
     _vat = json['vat'];
-    _codCharges = json['cod_charges'] != null ? CodCharges.fromJson(json['cod_charges']) : null;
+    _codCharges = json['cod_charges'] != null
+        ? CodCharges.fromJson(json['cod_charges'])
+        : null;
     _status = json['status'].toString();
     _address = json['address'];
   }
@@ -441,18 +448,18 @@ class MerchantData {
     map['address'] = _address;
     return map;
   }
-
 }
 
 class CodCharges {
   CodCharges({
-      String? insideCity, 
-      String? subCity, 
-      String? outsideCity,}){
+    String? insideCity,
+    String? subCity,
+    String? outsideCity,
+  }) {
     _insideCity = insideCity;
     _subCity = subCity;
     _outsideCity = outsideCity;
-}
+  }
 
   CodCharges.fromJson(dynamic json) {
     _insideCity = json['inside_city'];
@@ -463,9 +470,9 @@ class CodCharges {
   String? _subCity;
   String? _outsideCity;
 
-  String? get insideCity => _insideCity;
-  String? get subCity => _subCity;
-  String? get outsideCity => _outsideCity;
+  dynamic get insideCity => _insideCity;
+  dynamic get subCity => _subCity;
+  dynamic get outsideCity => _outsideCity;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -474,5 +481,4 @@ class CodCharges {
     map['outside_city'] = _outsideCity;
     return map;
   }
-
 }

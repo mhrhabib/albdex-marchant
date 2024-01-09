@@ -129,6 +129,7 @@ class ParcelController extends GetxController {
 
   crateParcel() {
     server.getRequest(endPoint: APIList.parcelCreate).then((response) {
+      print(">>>>>>parcel code${response.statusCode}");
       if (response != null && response.statusCode == 200) {
         loader = false;
         final jsonResponse = json.decode(response.body);
@@ -137,6 +138,7 @@ class ParcelController extends GetxController {
             double.parse(data.data!.fragileLiquid.toString());
         print(">>>>>>>>>>>>>>>${fragileLiquidAmount.value}");
         merchantData.value = data.data!.merchant!;
+        print(">>merchant value${merchantData.value.codCharges!.insideCity!}");
         vatTax.value = double.parse(merchantData.value.vat.toString());
         shopList = <Shops>[];
         shopList.addAll(data.data!.shops!);
@@ -308,27 +310,30 @@ class ParcelController extends GetxController {
 
     // var deliveryChargeAmount = 0.0.obs;
     RxDouble merchantCodCharge = 0.0.obs;
+    print(">>>>>>>>>${merchantData.value.codCharges!.insideCity}");
+    print(">>>>&&&&${merchantData.value.codCharges!.subCity}");
+    print("*********${merchantData.value.codCharges!.outsideCity}");
 
     if (deliveryTypID.value == 'Same Day') {
       deliveryChargeAmount.value =
           double.parse(deliveryChargesValue.value.sameDay.toString());
       merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.insideCity.toString());
+          double.parse(merchantData.value.codCharges!.insideCity ?? 0.0);
     } else if (deliveryTypID.value == 'Next Day') {
       deliveryChargeAmount.value =
           double.parse(deliveryChargesValue.value.nextDay.toString());
       merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.insideCity.toString());
+          double.parse(merchantData.value.codCharges!.insideCity ?? 0.0);
     } else if (deliveryTypID.value == 'Sub City') {
       deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.subCity.toString());
+          double.parse(deliveryChargesValue.value.subCity ?? 0.0);
       merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.subCity.toString());
+          double.parse(merchantData.value.codCharges!.subCity ?? 0.0);
     } else if (deliveryTypID.value == 'Outside City') {
       deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.outsideCity.toString());
+          double.parse(deliveryChargesValue.value.outsideCity ?? 0.0);
       merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.outsideCity.toString());
+          double.parse(merchantData.value.codCharges!.outsideCity ?? 0.0);
     } else {
       deliveryChargeAmount.value = 0;
       merchantCodCharge.value = 0;
