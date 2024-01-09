@@ -15,6 +15,8 @@ import '/services/user-service.dart';
 class GlobalController extends GetxController {
   Server server = Server();
 
+  var isLoading = false.obs;
+
   UserService userService = UserService();
   bool profileLoader = true;
   String? bearerToken, siteName, siteEmail, currencyName;
@@ -132,6 +134,32 @@ class GlobalController extends GetxController {
       update();
     });
     Get.off(() => const SignIn());
+  }
+
+  userDeleteAccount({BuildContext? context}) async {
+    isLoading.value = true;
+    var response = await server.deleteRequest(
+        endPoint: 'https://albdex.com/api/v10/account/delete');
+
+    print("code ${response.statusCode}");
+
+    try {
+      if (response.statusCode == 200) {
+        print(response.body);
+        getValue();
+        await userService.removeSharedPreferenceData();
+        await updateFcmUnSubscribe();
+        isUser = false;
+        isLoading.value = false;
+
+        Get.off(() => const SignIn());
+      }
+    } catch (e) {
+      Future.delayed(Duration(milliseconds: 10), () {
+        update();
+      });
+      isLoading.value = false;
+    }
   }
 
   getValue() async {
