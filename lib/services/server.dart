@@ -167,6 +167,7 @@ class Server {
   }
 
   static Map<String, String> _getHttpHeaders() {
+    print("token >>>>>>>>>>>>>>>$bearerToken");
     Map<String, String> headers = new Map<String, String>();
     headers['Authorization'] = bearerToken!;
     headers['apiKey'] = APIList.apiCheckKey!;

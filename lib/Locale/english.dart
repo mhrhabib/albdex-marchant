@@ -20,6 +20,7 @@ Map<String, String> english = {
   'language': 'Language',
   'submit': 'Submit',
   'log_out': "Log Out",
+  'delete_account': "Delete Account",
   'change_password': "Change Password",
   'edit_profile': "Edit Profile",
   'enter_date': "Enter Date",

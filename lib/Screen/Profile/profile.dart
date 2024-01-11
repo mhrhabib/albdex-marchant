@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,6 @@ import 'change_language_view.dart';
 import 'change_password_view.dart';
 import 'edit_profile_view.dart';
 
-
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -36,9 +34,8 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProfileController>(
-        init: ProfileController(),
-        builder: (profile) =>
-            Scaffold(
+      init: ProfileController(),
+      builder: (profile) => Scaffold(
           backgroundColor: kMainColor,
           appBar: AppBar(
             title: Text(
@@ -60,217 +57,348 @@ class _ProfileState extends State<Profile> {
               ),
               color: Colors.white,
             ),
-            child:
-            SingleChildScrollView(
-              child: Container(child:
-              Column(
-                children: [
-                  const SizedBox(height: 20.0),
-                  Column(
-                    children: [
-                      profile.profileLoader
-                          ? ProfileShimmer()
-                          :
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
-                        child:
-                        SingleChildScrollView(
-                          child: SizedBox(
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  child: Column(children: [
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Stack(
+            child: SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20.0),
+                    Column(
+                      children: [
+                        profile.profileLoader
+                            ? ProfileShimmer()
+                            : Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 10, right: 10, bottom: 10),
+                                child: SingleChildScrollView(
+                                  child: SizedBox(
+                                    child: Column(
                                       children: [
                                         SizedBox(
-                                          width: 100.w,
-                                          height: 100.h,
-                                          child: Center(
-                                            child:
-                                            CachedNetworkImage(
-                                              imageUrl:profile.profileUser.image.toString(),
-                                              imageBuilder: (context, imageProvider) =>
-                                                  CircleAvatar(
-                                                    radius: 50.0,
-                                                    backgroundColor: Colors.transparent,
-                                                    backgroundImage:imageProvider,
-                                                  ),
-
-                                              placeholder: (context, url) => Shimmer.fromColors(
-                                                child: CircleAvatar(radius: 50.0),
-                                                baseColor: Colors.grey[300]!,
-                                                highlightColor: Colors.grey[400]!,
-                                              ),
-                                              errorWidget: (context, url, error) =>
-                                                  Icon(CupertinoIcons.person,size: 50,),
+                                          child: Column(children: [
+                                            const SizedBox(
+                                              height: 10,
                                             ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: 75,
-                                          right: 20,
-                                          child: InkWell(
-                                            onTap: (() => Get.to( EditProfileView())),
-                                            child: SizedBox(
-                                              width: 30.w,
-                                              height: 30.h,
-                                              child: CircleAvatar(
-                                                backgroundColor: Colors.white,
-                                                child: SizedBox(
-                                                  width: 30.w,
-                                                  height: 30.h,
-                                                  child: CircleAvatar(
-                                                    backgroundColor: darkGray,
-                                                    child: Image.asset(
-                                                      Images.iconEdit,
-                                                      fit: BoxFit.cover,
-                                                      height: 22.h,
-                                                      width: 22.w,
+                                            Stack(
+                                              children: [
+                                                SizedBox(
+                                                  width: 100.w,
+                                                  height: 100.h,
+                                                  child: Center(
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: profile
+                                                          .profileUser.image
+                                                          .toString(),
+                                                      imageBuilder: (context,
+                                                              imageProvider) =>
+                                                          CircleAvatar(
+                                                        radius: 50.0,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        backgroundImage:
+                                                            imageProvider,
+                                                      ),
+                                                      placeholder: (context,
+                                                              url) =>
+                                                          Shimmer.fromColors(
+                                                        child: CircleAvatar(
+                                                            radius: 50.0),
+                                                        baseColor:
+                                                            Colors.grey[300]!,
+                                                        highlightColor:
+                                                            Colors.grey[400]!,
+                                                      ),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Icon(
+                                                        CupertinoIcons.person,
+                                                        size: 50,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
+                                                Positioned(
+                                                  top: 75,
+                                                  right: 20,
+                                                  child: InkWell(
+                                                    onTap: (() => Get.to(
+                                                        EditProfileView())),
+                                                    child: SizedBox(
+                                                      width: 30.w,
+                                                      height: 30.h,
+                                                      child: CircleAvatar(
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                        child: SizedBox(
+                                                          width: 30.w,
+                                                          height: 30.h,
+                                                          child: CircleAvatar(
+                                                            backgroundColor:
+                                                                darkGray,
+                                                            child: Image.asset(
+                                                              Images.iconEdit,
+                                                              fit: BoxFit.cover,
+                                                              height: 22.h,
+                                                              width: 22.w,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 16,
+                                            ),
+                                            Text(
+                                              profile.profileUser.name
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'Rubik',
+                                                fontSize: 16,
+                                                color: fontColor,
+                                                fontWeight: FontWeight.w700,
                                               ),
                                             ),
+                                            SizedBox(
+                                              height: 5.h,
+                                            ),
+                                            Text(
+                                              profile.profileUser.email
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'Rubik',
+                                                fontSize: 14,
+                                                color: grayColor,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 2.h,
+                                            ),
+                                            Text(
+                                              profile.profileUser.phone
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'Rubik',
+                                                fontSize: 14,
+                                                color: grayColor,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ]),
+                                        ),
+                                        SizedBox(
+                                          height: 30,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                              width: 60,
+                                            ),
+                                            ProfileCard(
+                                              page: false,
+                                              topic: 'opening_balance'.tr,
+                                              amount:
+                                                  ' ${Get.find<GlobalController>().currency!}${profile.profileMerchant.openingBalance.toString()}',
+                                              imgUrl: Images.logo,
+                                              cardColor: kSecondaryColor,
+                                            ),
+                                            const SizedBox(
+                                              width: 16,
+                                            ),
+                                            ProfileCard(
+                                              page: true,
+                                              topic: 'vat'.tr + '%',
+                                              amount:
+                                                  ' ${Get.find<GlobalController>().currency!}${profile.profileMerchant.vat.toString()}',
+                                              imgUrl: Images.logo,
+                                              cardColor: kMainColor,
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 30,
+                                        ),
+                                        ButtonGlobal(
+                                            buttontext: 'Check Balance ➤'.tr,
+                                            buttonDecoration: kButtonDecoration
+                                                .copyWith(
+                                                    color: Colors
+                                                        .deepOrangeAccent
+                                                        .shade200,
+                                                    boxShadow: [
+                                                  BoxShadow(
+                                                      color: Colors.black
+                                                          .withOpacity(.2),
+                                                      blurRadius: 3,
+                                                      offset: Offset(0, 1))
+                                                ]),
+                                            onPressed: () {
+                                              setState(() {
+                                                const BalanceDetails()
+                                                    .launch(context);
+                                              });
+                                            }),
+                                        SizedBox(
+                                          height: 30,
+                                        ),
+                                        profileItem(
+                                            EditProfileView(),
+                                            Images.iconEditProfile,
+                                            "edit_profile".tr),
+                                        profileItem(
+                                            ChangePasswordView(),
+                                            Images.iconChangePass,
+                                            "change_password".tr),
+                                        profileItem(
+                                            ChangeLanguageView(),
+                                            Images.iconChangeLang,
+                                            "change_language".tr),
+                                        SizedBox(
+                                          height: 14,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  GetBuilder<GlobalController>(
+                                                      builder: (controller) {
+                                                return controller
+                                                        .isLoading.value
+                                                    ? CircularProgressIndicator(
+                                                        color: orange,
+                                                      )
+                                                    : AlertDialog(
+                                                        title: Text(
+                                                          'Are you sure, you want to delete your account?',
+                                                        ),
+                                                        actions: [
+                                                          ElevatedButton(
+                                                            style:
+                                                                ElevatedButton
+                                                                    .styleFrom(
+                                                              backgroundColor:
+                                                                  Colors.green,
+                                                              minimumSize: Size(
+                                                                  MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .width *
+                                                                      0.2,
+                                                                  30),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                            child: Text('No'),
+                                                          ),
+                                                          ElevatedButton(
+                                                            style: ElevatedButton.styleFrom(
+                                                                backgroundColor:
+                                                                    Colors.red,
+                                                                minimumSize: Size(
+                                                                    MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.2,
+                                                                    30)),
+                                                            onPressed:
+                                                                () async {
+                                                              await controller
+                                                                  .userDeleteAccount();
+                                                            },
+                                                            child: Text('Yes'),
+                                                          ),
+                                                        ],
+                                                      );
+                                              }),
+                                            );
+                                          },
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .delete_outline_rounded,
+                                                    color: Colors.black45,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 16.h,
+                                                  ),
+                                                  Text(
+                                                    "delete_account".tr,
+                                                    style: fontProfile,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 14.h,
+                                              ),
+                                            ],
                                           ),
+                                        ),
+                                        SizedBox(
+                                          height: 14,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            Get.find<GlobalController>()
+                                                .userLogout();
+                                          },
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  SvgPicture.asset(
+                                                    Images.iconLogout,
+                                                    height: 16.h,
+                                                    width: 16.w,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 16.h,
+                                                  ),
+                                                  Text(
+                                                    "log_out".tr,
+                                                    style: fontProfile,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 14.h,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 90,
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(
-                                      height: 16,
-                                    ),
-                                     Text(
-                                      profile.profileUser.name.toString(),
-                                      style: TextStyle(
-                                        fontFamily: 'Rubik',
-                                        fontSize: 16,
-                                        color: fontColor,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                     Text(
-                                      profile.profileUser.email.toString(),
-                                      style: TextStyle(
-                                        fontFamily: 'Rubik',
-                                        fontSize: 14,
-                                        color: grayColor,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 2.h,
-                                    ),
-                                     Text(
-                                      profile.profileUser.phone.toString(),
-                                      style: TextStyle(
-                                        fontFamily: 'Rubik',
-                                        fontSize: 14,
-                                        color: grayColor,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ]),
-                                ),
-                                SizedBox(height: 30,),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SizedBox(width: 60,),
-                                    ProfileCard(
-                                      page: false,
-                                      topic: 'opening_balance'.tr,
-                                      amount: ' ${Get.find<GlobalController>()
-                                          .currency!}${profile.profileMerchant.openingBalance.toString()}',
-                                      imgUrl: Images.logo,
-                                      cardColor: kSecondaryColor,
-                                    ),
-                                    const SizedBox(
-                                      width: 16,
-                                    ),
-                                    ProfileCard(
-                                      page: true,
-                                      topic: 'vat'.tr+'%',
-                                      amount: ' ${Get.find<GlobalController>()
-                                          .currency!}${profile.profileMerchant.vat.toString()}',
-                                      imgUrl: Images.logo,
-                                      cardColor: kMainColor,
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 30,),
-                                ButtonGlobal(
-                                    buttontext: 'Check Balance ➤'.tr,
-                                    buttonDecoration: kButtonDecoration.copyWith(color: Colors.deepOrangeAccent.shade200,boxShadow:  [BoxShadow(color: Colors.black.withOpacity(.2),blurRadius: 3,offset: Offset(0,1))]),
-                                    onPressed: () {
-                                      setState(() {
-                                        const BalanceDetails().launch(context);
-                                      });
-                                    }),
-                                SizedBox(height: 30,),
-                                profileItem(EditProfileView(), Images.iconEditProfile,
-                                    "edit_profile".tr),
-                                profileItem(ChangePasswordView(), Images.iconChangePass,
-                                    "change_password".tr),
-                                profileItem(ChangeLanguageView(), Images.iconChangeLang,
-                                    "change_language".tr),
-                                SizedBox(height: 14,),
-                                InkWell(
-                                  onTap: () {
-                                    Get.find<GlobalController>().userLogout();
-                                  },
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          SvgPicture.asset(
-                                            Images.iconLogout,
-                                            height: 16.h,
-                                            width: 16.w,
-                                            fit: BoxFit.cover,
-                                          ),
-                                          SizedBox(
-                                            width: 16.h,
-                                          ),
-                                          Text(
-                                            "log_out".tr,
-                                            style: fontProfile,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 14.h,
-                                      ),
-                                    ],
                                   ),
-                                ),
-                                SizedBox(height: 90,),
-                              ],
-                            ),
-                          ),
-                        )
-
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                                )),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          )
-        ),
+          )),
     );
   }
 
   InkWell profileItem(route, icon, textValue) {
     return InkWell(
       onTap: () => Get.to(route),
-      child:
-      Column(
+      child: Column(
         children: [
           SizedBox(
             height: 10.h,
@@ -304,5 +432,4 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
-
 }
