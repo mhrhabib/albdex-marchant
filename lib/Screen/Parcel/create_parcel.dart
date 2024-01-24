@@ -178,87 +178,87 @@ class _CreateParcelState extends State<CreateParcel> {
                                               },
                                             ),
                                           ),
+                                    // const SizedBox(height: 20.0),
+                                    // AppTextField(
+                                    //   onChanged: (value) {
+                                    //     setState(() {
+                                    //       parcel.pickupPhone =
+                                    //           parcel.pickupPhoneController.text;
+                                    //     });
+                                    //   },
+                                    //   controller: parcel.pickupPhoneController
+                                    //     ..text = parcel.pickupPhone.toString()
+                                    //     ..selection = TextSelection.collapsed(
+                                    //         offset: parcel.pickupPhoneController
+                                    //             .text.length),
+                                    //   showCursor: true,
+                                    //   validator: (value) {
+                                    //     if (parcel.pickupPhoneController.text
+                                    //         .isEmpty) {
+                                    //       return "this_field_can_t_be_empty".tr;
+                                    //     }
+                                    //     return null;
+                                    //   },
+                                    //   cursorColor: kTitleColor,
+                                    //   textFieldType: TextFieldType.PHONE,
+                                    //   decoration: kInputDecoration.copyWith(
+                                    //     enabledBorder: const OutlineInputBorder(
+                                    //       borderRadius: BorderRadius.all(
+                                    //           Radius.circular(2.0)),
+                                    //       borderSide: BorderSide(
+                                    //           color: kBorderColorTextField,
+                                    //           width: 2),
+                                    //     ),
+                                    //     labelText: 'pickup_phone'.tr,
+                                    //     labelStyle: kTextStyle.copyWith(
+                                    //         color: kTitleColor),
+                                    //     hintText: '017XXXXXXXX',
+                                    //     hintStyle: kTextStyle.copyWith(
+                                    //         color: kGreyTextColor),
+                                    //   ),
+                                    // ),
                                     const SizedBox(height: 20.0),
-                                    AppTextField(
-                                      onChanged: (value) {
-                                        setState(() {
-                                          parcel.pickupPhone =
-                                              parcel.pickupPhoneController.text;
-                                        });
-                                      },
-                                      controller: parcel.pickupPhoneController
-                                        ..text = parcel.pickupPhone.toString()
-                                        ..selection = TextSelection.collapsed(
-                                            offset: parcel.pickupPhoneController
-                                                .text.length),
-                                      showCursor: true,
-                                      validator: (value) {
-                                        if (parcel.pickupPhoneController.text
-                                            .isEmpty) {
-                                          return "this_field_can_t_be_empty".tr;
-                                        }
-                                        return null;
-                                      },
-                                      cursorColor: kTitleColor,
-                                      textFieldType: TextFieldType.PHONE,
-                                      decoration: kInputDecoration.copyWith(
-                                        enabledBorder: const OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(2.0)),
-                                          borderSide: BorderSide(
-                                              color: kBorderColorTextField,
-                                              width: 2),
-                                        ),
-                                        labelText: 'pickup_phone'.tr,
-                                        labelStyle: kTextStyle.copyWith(
-                                            color: kTitleColor),
-                                        hintText: '017XXXXXXXX',
-                                        hintStyle: kTextStyle.copyWith(
-                                            color: kGreyTextColor),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20.0),
-                                    AppTextField(
-                                      onChanged: (value) {
-                                        setState(() {
-                                          parcel.pickupAddress = parcel
-                                              .pickupAddressController.text;
-                                        });
-                                      },
-                                      controller: parcel.pickupAddressController
-                                        ..text = parcel.pickupAddress.toString()
-                                        ..selection = TextSelection.collapsed(
-                                            offset: parcel
-                                                .pickupAddressController
-                                                .text
-                                                .length),
-                                      showCursor: true,
-                                      validator: (value) {
-                                        if (parcel.pickupAddressController.text
-                                            .isEmpty) {
-                                          return "this_field_can_t_be_empty".tr;
-                                        }
-                                        return null;
-                                      },
-                                      cursorColor: kTitleColor,
-                                      textFieldType: TextFieldType.NAME,
-                                      decoration: kInputDecoration.copyWith(
-                                        enabledBorder: const OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(2.0)),
-                                          borderSide: BorderSide(
-                                              color: kBorderColorTextField,
-                                              width: 2),
-                                        ),
-                                        labelText: 'pickup_address'.tr,
-                                        labelStyle: kTextStyle.copyWith(
-                                            color: kTitleColor),
-                                        hintText: 'enter_address'.tr,
-                                        hintStyle: kTextStyle.copyWith(
-                                            color: kGreyTextColor),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20.0),
+                                    // AppTextField(
+                                    //   onChanged: (value) {
+                                    //     setState(() {
+                                    //       parcel.pickupAddress = parcel
+                                    //           .pickupAddressController.text;
+                                    //     });
+                                    //   },
+                                    //   controller: parcel.pickupAddressController
+                                    //     ..text = parcel.pickupAddress.toString()
+                                    //     ..selection = TextSelection.collapsed(
+                                    //         offset: parcel
+                                    //             .pickupAddressController
+                                    //             .text
+                                    //             .length),
+                                    //   showCursor: true,
+                                    //   validator: (value) {
+                                    //     if (parcel.pickupAddressController.text
+                                    //         .isEmpty) {
+                                    //       return "this_field_can_t_be_empty".tr;
+                                    //     }
+                                    //     return null;
+                                    //   },
+                                    //   cursorColor: kTitleColor,
+                                    //   textFieldType: TextFieldType.NAME,
+                                    //   decoration: kInputDecoration.copyWith(
+                                    //     enabledBorder: const OutlineInputBorder(
+                                    //       borderRadius: BorderRadius.all(
+                                    //           Radius.circular(2.0)),
+                                    //       borderSide: BorderSide(
+                                    //           color: kBorderColorTextField,
+                                    //           width: 2),
+                                    //     ),
+                                    //     labelText: 'pickup_address'.tr,
+                                    //     labelStyle: kTextStyle.copyWith(
+                                    //         color: kTitleColor),
+                                    //     hintText: 'enter_address'.tr,
+                                    //     hintStyle: kTextStyle.copyWith(
+                                    //         color: kGreyTextColor),
+                                    //   ),
+                                    // ),
+                                    // const SizedBox(height: 20.0),
                                     AppTextField(
                                       controller:
                                           parcel.cashCollectionController,
@@ -288,27 +288,27 @@ class _CreateParcelState extends State<CreateParcel> {
                                       ),
                                     ),
                                     const SizedBox(height: 20.0),
-                                    AppTextField(
-                                      controller: parcel.sellingPriceController,
-                                      cursorColor: kTitleColor,
-                                      textFieldType: TextFieldType.NAME,
-                                      decoration: kInputDecoration.copyWith(
-                                        enabledBorder: const OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(2.0)),
-                                          borderSide: BorderSide(
-                                              color: kBorderColorTextField,
-                                              width: 2),
-                                        ),
-                                        labelText: 'selling_price'.tr,
-                                        labelStyle: kTextStyle.copyWith(
-                                            color: kTitleColor),
-                                        hintText: 'selling_price_of_parcel'.tr,
-                                        hintStyle: kTextStyle.copyWith(
-                                            color: kGreyTextColor),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20.0),
+                                    // AppTextField(
+                                    //   controller: parcel.sellingPriceController,
+                                    //   cursorColor: kTitleColor,
+                                    //   textFieldType: TextFieldType.NAME,
+                                    //   decoration: kInputDecoration.copyWith(
+                                    //     enabledBorder: const OutlineInputBorder(
+                                    //       borderRadius: BorderRadius.all(
+                                    //           Radius.circular(2.0)),
+                                    //       borderSide: BorderSide(
+                                    //           color: kBorderColorTextField,
+                                    //           width: 2),
+                                    //     ),
+                                    //     labelText: 'selling_price'.tr,
+                                    //     labelStyle: kTextStyle.copyWith(
+                                    //         color: kTitleColor),
+                                    //     hintText: 'selling_price_of_parcel'.tr,
+                                    //     hintStyle: kTextStyle.copyWith(
+                                    //         color: kGreyTextColor),
+                                    //   ),
+                                    // ),
+                                    // const SizedBox(height: 20.0),
                                     AppTextField(
                                       controller: parcel.invoiceController,
                                       cursorColor: kTitleColor,
