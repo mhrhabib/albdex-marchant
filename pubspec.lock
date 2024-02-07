@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: d84d98f1992976775f83083523a34c5d22fea191eec3abb2bd09537fb623c2e0
+      sha256: "78f9e0914a5b85de1257a0c1d1af92c4e22f86448133dfc967651ca606a87a82"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.7"
+    version: "1.3.20"
   archive:
     dependency: transitive
     description:
@@ -221,42 +221,42 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: be325344c1f3070354a1d84a231a1ba75ea85d413774ec4bdf444c023342e030
+      sha256: "4e42aacde3b993c5947467ab640882c56947d9d27342a5b6f2895b23956954a6"
       url: "https://pub.dev"
     source: hosted
-    version: "5.5.0"
+    version: "6.1.1"
   firebase_analytics:
     dependency: "direct main"
     description:
       name: firebase_analytics
-      sha256: "6a8b509b81760dca2abe70c46811f3824c150e9a3f85982f062624a7bae31857"
+      sha256: bb6c067f552a1723158b99ead19242b72ea41ee56e08403fdd8752d1d128691b
       url: "https://pub.dev"
     source: hosted
-    version: "10.5.1"
+    version: "10.8.4"
   firebase_analytics_platform_interface:
     dependency: transitive
     description:
       name: firebase_analytics_platform_interface
-      sha256: acb9cb733fff14041c030ec9c71fc9be6c9d60dbe8932b2a38bc1428d638a915
+      sha256: "19189d6c824addc4587de87ccb156668382a761771d50496d4904b99dd98a78c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.1"
+    version: "3.9.4"
   firebase_analytics_web:
     dependency: transitive
     description:
       name: firebase_analytics_web
-      sha256: "56ee5baf213cae47eab0ec926261dfecb9d7089ee28edf38dca3ad0ca01601c7"
+      sha256: e445eca85f60e59bcf7c921c8e7d89bb9a34ac1fce7000628374b340152e9e62
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.5+1"
+    version: "0.5.5+16"
   firebase_core:
     dependency: "direct main"
     description:
       name: firebase_core
-      sha256: "95580fa07c8ca3072a2bb1fecd792616a33f8683477d25b7d29d3a6a399e6ece"
+      sha256: "0b066f2dc196de65f4e57dc851984acba751a7929bffaee69464b3f75e175a5c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.17.0"
+    version: "2.25.3"
   firebase_core_dart:
     dependency: "direct main"
     description:
@@ -269,42 +269,42 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_core_platform_interface
-      sha256: b63e3be6c96ef5c33bdec1aab23c91eb00696f6452f0519401d640938c94cba2
+      sha256: c437ae5d17e6b5cc7981cf6fd458a5db4d12979905f9aafd1fea930428a9fe63
       url: "https://pub.dev"
     source: hosted
-    version: "4.8.0"
+    version: "5.0.0"
   firebase_core_web:
     dependency: transitive
     description:
       name: firebase_core_web
-      sha256: e8c408923cd3a25bd342c576a114f2126769cd1a57106a4edeaa67ea4a84e962
+      sha256: df9d4ce37b97ecbe4347fb21887cb61383e3e95f8cf8d6c2de5999ef58e8b312
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.0"
+    version: "2.11.3"
   firebase_messaging:
     dependency: "direct main"
     description:
       name: firebase_messaging
-      sha256: "67f9d7c87457e71ad78ee81e332f232b8a24f7d5e338f8c958fa7d6e9e0e3636"
+      sha256: "56a35bb6cf3a0dd4878c052b10ab3b7ccece95f1961066e6c6078d8f2559d0f5"
       url: "https://pub.dev"
     source: hosted
-    version: "14.6.9"
+    version: "14.7.14"
   firebase_messaging_platform_interface:
     dependency: transitive
     description:
       name: firebase_messaging_platform_interface
-      sha256: "8c7ced3201886ad7ba37f344c1468ccfc08abb3023922e0e5a016eaf38abb96c"
+      sha256: d52e428a51144b916ce2a09635d8da4eeee0613b2bb76c40288585f6015ce3f3
       url: "https://pub.dev"
     source: hosted
-    version: "4.5.8"
+    version: "4.5.22"
   firebase_messaging_web:
     dependency: transitive
     description:
       name: firebase_messaging_web
-      sha256: b601322bdb44e2fefe4cc7b85ef0dbb7a2479d4a7653a51340821cf8d60696b5
+      sha256: "8796f9e947c92e51ed48fed702522c5c1a7d7c62197c8f1e23e9691793d20689"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.8"
+    version: "3.6.3"
   fixnum:
     dependency: transitive
     description:
@@ -412,10 +412,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
+      sha256: f0b8d115a13ecf827013ec9fc883390ccc0e87a96ed5347a3114cac177ef18e8
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.5"
+    version: "6.1.0"
   http:
     dependency: transitive
     description:
@@ -753,18 +753,18 @@ packages:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_charts
-      sha256: "9b3087a6b2e06a23ae322123a4cd6a9f06256958eee1aeceda47d043bb2dd794"
+      sha256: "6b37deb959ad5b9455e763a83e4e79dc395262c8c059598aca82aa423ef6de5c"
       url: "https://pub.dev"
     source: hosted
-    version: "22.2.12"
+    version: "24.2.4"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "9f0a4593f7642b2f106e329734d0e5fc746baf8d0a59495eec586cd0d9ba7d02"
+      sha256: e8580e201c7197feac830b501889e877796a9fabbe20dcdbe90a981603939101
       url: "https://pub.dev"
     source: hosted
-    version: "22.2.12"
+    version: "24.2.4"
   synchronized:
     dependency: transitive
     description:

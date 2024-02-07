@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const kMainColor = Colors.grey;
+const kMainColor = Color(0XFFE14915);
 const kBgColor = Color(0xFFfafafb);
 const Color itembg = Color(0xffEFF0F6);
 const Color deleveryColor = Color(0xffBDEFFF);
@@ -60,31 +60,10 @@ final otpInputDecoration = InputDecoration(
   enabledBorder: outlineInputBorder(),
 );
 
-List<String> businessCategory = [
-  'Fashion Store',
-  'Electronics Store',
-  'Computer Store',
-  'Vegetable Store',
-  'Sweet Store',
-  'Meat Store'
-];
-List<String> language = [
-  'English',
-  'Bengali',
-  'Hindi',
-  'Urdu',
-  'French',
-  'Spanish'
-];
+List<String> businessCategory = ['Fashion Store', 'Electronics Store', 'Computer Store', 'Vegetable Store', 'Sweet Store', 'Meat Store'];
+List<String> language = ['English', 'Bengali', 'Hindi', 'Urdu', 'French', 'Spanish'];
 
-List<String> productCategory = [
-  'Fashion',
-  'Electronics',
-  'Computer',
-  'Gadgets',
-  'Watches',
-  'Cloths'
-];
+List<String> productCategory = ['Fashion', 'Electronics', 'Computer', 'Gadgets', 'Watches', 'Cloths'];
 
 List<String> userRole = [
   'Super Admin',

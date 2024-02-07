@@ -1,6 +1,6 @@
 class APIList {
-  static String? server = "https://albdex.com/api/v10/";
-  static String? apiUrl = "albdex.com";
+  static String? server = "https://dndcourier.com/api/v10/";
+  static String? apiUrl = "https://dndcourier.com/";
   static String? apiCheckKey = "123456rx-ecourier123456";
   static String? apiEndPoint = "/api/v10/";
   static String? login = "${server!}signin";
