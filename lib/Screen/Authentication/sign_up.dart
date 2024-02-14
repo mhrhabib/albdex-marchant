@@ -34,7 +34,7 @@ class _SignUpState extends State<SignUp> {
     SizeConfigCustom sizeConfig = SizeConfigCustom();
     sizeConfig.init(context);
     return Scaffold(
-      backgroundColor: kMainColor,
+      backgroundColor: kBgColor,
       body: GetBuilder<AuthController>(
           init: AuthController(),
           builder: (auth) => Stack(children: [
@@ -57,10 +57,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       Text(
                         'registration_form'.tr,
-                        style: kTextStyle.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0),
+                        style: kTextStyle.copyWith(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
                       const SizedBox(height: 5.0),
                       Text(
@@ -90,8 +87,7 @@ class _SignUpState extends State<SignUp> {
                                     showCursor: true,
                                     controller: auth.businessNameController,
                                     validator: (value) {
-                                      if (auth.businessNameController.text
-                                          .isEmpty) {
+                                      if (auth.businessNameController.text.isEmpty) {
                                         return "this_field_can_t_be_empty".tr;
                                       }
                                       return null;
@@ -100,11 +96,9 @@ class _SignUpState extends State<SignUp> {
                                     textFieldType: TextFieldType.NAME,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'business_name'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                       hintText: 'wecourier'.tr,
-                                      hintStyle: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                     ),
                                   ),
                                   const SizedBox(height: 20),
@@ -112,8 +106,7 @@ class _SignUpState extends State<SignUp> {
                                     showCursor: true,
                                     controller: auth.firstNameController,
                                     validator: (value) {
-                                      if (auth
-                                          .firstNameController.text.isEmpty) {
+                                      if (auth.firstNameController.text.isEmpty) {
                                         return "this_field_can_t_be_empty".tr;
                                       }
                                       return null;
@@ -122,11 +115,9 @@ class _SignUpState extends State<SignUp> {
                                     textFieldType: TextFieldType.NAME,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'first_name'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                       hintText: 'we'.tr,
-                                      hintStyle: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                     ),
                                   ),
                                   const SizedBox(height: 20),
@@ -134,8 +125,7 @@ class _SignUpState extends State<SignUp> {
                                     showCursor: true,
                                     controller: auth.lastNameController,
                                     validator: (value) {
-                                      if (auth
-                                          .lastNameController.text.isEmpty) {
+                                      if (auth.lastNameController.text.isEmpty) {
                                         return "this_field_can_t_be_empty".tr;
                                       }
                                       return null;
@@ -144,11 +134,9 @@ class _SignUpState extends State<SignUp> {
                                     textFieldType: TextFieldType.NAME,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'last_name'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                       hintText: 'courier'.tr,
-                                      hintStyle: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                     ),
                                   ),
                                   const SizedBox(height: 20),
@@ -164,11 +152,8 @@ class _SignUpState extends State<SignUp> {
                                     textAlign: TextAlign.start,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'address'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              vertical: 30, horizontal: 10.0),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
+                                      contentPadding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10.0),
                                     ),
                                   ),
                                   const SizedBox(height: 20),
@@ -176,16 +161,11 @@ class _SignUpState extends State<SignUp> {
                                     () => globalController.hubList.length == 0
                                         ? SizedBox.shrink()
                                         : DropDownWidget(
-                                            itemList: globalController.hubList
-                                                .map((element) => element.name!)
-                                                .toList(),
+                                            itemList: globalController.hubList.map((element) => element.name!).toList(),
                                             selectedValue: '',
                                             initialValue: 'HUB',
                                             onChanged: (val) {
-                                              var hubs = globalController
-                                                  .hubList
-                                                  .firstWhere((element) =>
-                                                      element.name == val);
+                                              var hubs = globalController.hubList.firstWhere((element) => element.name == val);
                                               setState(() {
                                                 hub = hubs.id!;
                                               });
@@ -205,11 +185,9 @@ class _SignUpState extends State<SignUp> {
                                     textFieldType: TextFieldType.PHONE,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'mobile'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                       hintText: '017XXXXXXXX',
-                                      hintStyle: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                     ),
                                   ),
                                   const SizedBox(height: 20),
@@ -218,8 +196,7 @@ class _SignUpState extends State<SignUp> {
                                     cursorColor: kTitleColor,
                                     controller: auth.passwordController,
                                     validator: (value) {
-                                      if (auth
-                                          .passwordController.text.isEmpty) {
+                                      if (auth.passwordController.text.isEmpty) {
                                         return "this_field_can_t_be_empty".tr;
                                       }
                                       return null;
@@ -227,11 +204,9 @@ class _SignUpState extends State<SignUp> {
                                     textFieldType: TextFieldType.PASSWORD,
                                     decoration: kInputDecoration.copyWith(
                                       labelText: 'password'.tr,
-                                      labelStyle: kTextStyle.copyWith(
-                                          color: kTitleColor),
+                                      labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                       hintText: '********',
-                                      hintStyle: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                     ),
                                   ),
                                   const SizedBox(height: 10),
@@ -241,8 +216,7 @@ class _SignUpState extends State<SignUp> {
                                       Checkbox(
                                         activeColor: kMainColor,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(2.0),
+                                          borderRadius: BorderRadius.circular(2.0),
                                         ),
                                         value: isChecked,
                                         onChanged: (val) {
@@ -255,23 +229,16 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                       Flexible(
                                         child: RichText(
-                                          text: TextSpan(
-                                              text: 'i_agree_to'.tr,
-                                              style: kTextStyle.copyWith(
-                                                  color: kTitleColor),
-                                              children: [
-                                                TextSpan(
-                                                  text: 'e_courier'.tr,
-                                                  style: kTextStyle.copyWith(
-                                                      color: kGreyTextColor),
-                                                ),
-                                                TextSpan(
-                                                  text: 'privacy_Policy_&_terms'
-                                                      .tr,
-                                                  style: kTextStyle.copyWith(
-                                                      color: kTitleColor),
-                                                )
-                                              ]),
+                                          text: TextSpan(text: 'i_agree_to'.tr, style: kTextStyle.copyWith(color: kTitleColor), children: [
+                                            TextSpan(
+                                              text: 'e_courier'.tr,
+                                              style: kTextStyle.copyWith(color: kGreyTextColor),
+                                            ),
+                                            TextSpan(
+                                              text: 'privacy_Policy_&_terms'.tr,
+                                              style: kTextStyle.copyWith(color: kTitleColor),
+                                            )
+                                          ]),
                                         ),
                                       )
                                     ],
@@ -281,13 +248,9 @@ class _SignUpState extends State<SignUp> {
                                       height: 70,
                                       child: ButtonGlobal(
                                           buttontext: 'register_my_account'.tr,
-                                          buttonDecoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(30.0),
-                                              color: kMainColor),
+                                          buttonDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), color: kMainColor),
                                           onPressed: () async {
-                                            if (_formKey.currentState!
-                                                .validate()) {
+                                            if (_formKey.currentState!.validate()) {
                                               await auth.signupOnTap(hub);
                                             }
                                           })),
@@ -295,13 +258,11 @@ class _SignUpState extends State<SignUp> {
                                       child: RichText(
                                     text: TextSpan(
                                       text: 'already_member'.tr,
-                                      style: kTextStyle.copyWith(
-                                          color: kGreyTextColor),
+                                      style: kTextStyle.copyWith(color: kGreyTextColor),
                                       children: [
                                         TextSpan(
                                           text: 'login_here'.tr,
-                                          style: kTextStyle.copyWith(
-                                              color: kMainColor),
+                                          style: kTextStyle.copyWith(color: kMainColor),
                                         ),
                                       ],
                                     ),
@@ -317,11 +278,7 @@ class _SignUpState extends State<SignUp> {
                 )),
                 auth.loader
                     ? Positioned(
-                        child: Container(
-                            height: MediaQuery.of(context).size.height,
-                            width: MediaQuery.of(context).size.width,
-                            color: Colors.white60,
-                            child: const Center(child: LoaderCircle())),
+                        child: Container(height: MediaQuery.of(context).size.height, width: MediaQuery.of(context).size.width, color: Colors.white60, child: const Center(child: LoaderCircle())),
                       )
                     : const SizedBox.shrink(),
               ])),

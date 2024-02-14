@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
         builder: (auth) => SafeArea(
               child: Scaffold(
                 resizeToAvoidBottomInset: false,
-                backgroundColor: kMainColor,
+                backgroundColor: kBgColor,
                 body: Stack(children: [
                   Center(
                       child: Column(
@@ -61,8 +61,7 @@ class _SignInState extends State<SignIn> {
                       ),
                       Text(
                         'please_enter_your_user_information'.tr,
-                        style: kTextStyle.copyWith(
-                            color: Colors.white, fontSize: 18.0),
+                        style: kTextStyle.copyWith(color: Colors.white, fontSize: 18.0),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(
@@ -90,8 +89,7 @@ class _SignInState extends State<SignIn> {
                                         controller: _emailController,
                                         validator: (value) {
                                           if (_emailController.text.isEmpty) {
-                                            return "this_field_can_t_be_empty"
-                                                .tr;
+                                            return "this_field_can_t_be_empty".tr;
                                           }
                                           return null;
                                         },
@@ -99,13 +97,10 @@ class _SignInState extends State<SignIn> {
                                         textFieldType: TextFieldType.EMAIL,
                                         decoration: kInputDecoration.copyWith(
                                           labelText: 'email_mobile'.tr,
-                                          labelStyle: kTextStyle.copyWith(
-                                              color: kTitleColor),
+                                          labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                           hintText: 'courier@gmail.com',
-                                          hintStyle: kTextStyle.copyWith(
-                                              color: kGreyTextColor),
-                                          suffixIcon: const Icon(Icons.mail,
-                                              color: kGreyTextColor),
+                                          hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
+                                          suffixIcon: const Icon(Icons.mail, color: kGreyTextColor),
                                         ),
                                       ),
                                       const SizedBox(height: 20.0),
@@ -114,33 +109,27 @@ class _SignInState extends State<SignIn> {
                                         cursorColor: kTitleColor,
                                         controller: _passwordController,
                                         validator: (value) {
-                                          if (_passwordController
-                                              .text.isEmpty) {
-                                            return "this_field_can_t_be_empty"
-                                                .tr;
+                                          if (_passwordController.text.isEmpty) {
+                                            return "this_field_can_t_be_empty".tr;
                                           }
                                           return null;
                                         },
                                         textFieldType: TextFieldType.PASSWORD,
                                         decoration: kInputDecoration.copyWith(
                                           labelText: 'password'.tr,
-                                          labelStyle: kTextStyle.copyWith(
-                                              color: kTitleColor),
+                                          labelStyle: kTextStyle.copyWith(color: kTitleColor),
                                           hintText: '********',
-                                          hintStyle: kTextStyle.copyWith(
-                                              color: kGreyTextColor),
+                                          hintStyle: kTextStyle.copyWith(color: kGreyTextColor),
                                         ),
                                       ),
                                       const SizedBox(height: 10.0),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           Checkbox(
                                             activeColor: kMainColor,
                                             shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(2.0),
+                                              borderRadius: BorderRadius.circular(2.0),
                                             ),
                                             value: isChecked,
                                             onChanged: (val) {
@@ -153,9 +142,7 @@ class _SignInState extends State<SignIn> {
                                           ),
                                           Text(
                                             'remember_me'.tr,
-                                            style: kTextStyle.copyWith(
-                                                color: kTitleColor,
-                                                fontWeight: FontWeight.bold),
+                                            style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                                           ),
                                           const Spacer(),
                                           // Text(
@@ -170,20 +157,10 @@ class _SignInState extends State<SignIn> {
                                       const SizedBox(height: 30.0),
                                       ButtonGlobal(
                                         buttontext: 'sign_in'.tr,
-                                        buttonDecoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(30.0),
-                                            color: kMainColor),
+                                        buttonDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), color: kMainColor),
                                         onPressed: () async {
-                                          if (_formKey.currentState!
-                                              .validate()) {
-                                            auth.loginOnTap(
-                                                email: _emailController.text
-                                                    .toString()
-                                                    .trim(),
-                                                pass: _passwordController.text
-                                                    .toString()
-                                                    .trim());
+                                          if (_formKey.currentState!.validate()) {
+                                            auth.loginOnTap(email: _emailController.text.toString().trim(), pass: _passwordController.text.toString().trim());
                                           }
                                         },
                                       ),
@@ -191,14 +168,8 @@ class _SignInState extends State<SignIn> {
                                       RichText(
                                         text: TextSpan(
                                           text: 'dont_have_an_account'.tr,
-                                          style: kTextStyle.copyWith(
-                                              color: kTitleColor),
-                                          children: [
-                                            TextSpan(
-                                                text: 'sign_up_here'.tr,
-                                                style: kTextStyle.copyWith(
-                                                    color: kMainColor))
-                                          ],
+                                          style: kTextStyle.copyWith(color: kTitleColor),
+                                          children: [TextSpan(text: 'sign_up_here'.tr, style: kTextStyle.copyWith(color: kMainColor))],
                                         ),
                                       ).onTap(
                                         () => Get.off(SignUp()),
@@ -213,11 +184,7 @@ class _SignInState extends State<SignIn> {
                   )),
                   auth.loader
                       ? Positioned(
-                          child: Container(
-                              height: MediaQuery.of(context).size.height,
-                              width: MediaQuery.of(context).size.width,
-                              color: Colors.white60,
-                              child: const Center(child: LoaderCircle())),
+                          child: Container(height: MediaQuery.of(context).size.height, width: MediaQuery.of(context).size.width, color: Colors.white60, child: const Center(child: LoaderCircle())),
                         )
                       : const SizedBox.shrink(),
                 ]),
