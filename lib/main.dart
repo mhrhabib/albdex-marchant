@@ -13,10 +13,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   const firebaseOptions = FirebaseOptions(
     appId: '1:841347869934:ios:afebb8dd864db5137bd7ff',
-    apiKey: 'AIzaSyDCthiio0WgX1F2CiVlw1Z-kWOKYYi6vQI',
-    projectId: 'we-courier-81101',
-    messagingSenderId: '151878495365',
-    authDomain: 'we-courier-81101.firebaseapp.com',
+    apiKey: 'AIzaSyDMfqcJPP25tEbIKm43AwsyMqQNqdTslgg',
+    projectId: 'albdex-marchant',
+    messagingSenderId: '841347869934',
+    authDomain: 'albdex-marchant.appspot.com',
   );
   await Firebase.initializeApp(name: 'courier', options: firebaseOptions);
   await GetStorage.init();
@@ -38,8 +38,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: kMainColor));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: kMainColor));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
