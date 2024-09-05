@@ -24,18 +24,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    FirebaseMessaging.instance.getInitialMessage().then((RemoteMessage? message) {});
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {});
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {});
-    FirebaseMessaging.instance.getToken().then((token) {
-      update(token!);
+    // FirebaseMessaging.instance.getInitialMessage().then((RemoteMessage? message) {});
+    // FirebaseMessaging.onMessage.listen((RemoteMessage message) {});
+    // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {});
+    // FirebaseMessaging.instance.getToken().then((token) {
+    //   update(token!);
+    // });
+    Timer(const Duration(seconds: 2), () {
+      logInCheck();
     });
-    Timer(
-      const Duration(seconds: 2),
-      () => {
-        logInCheck(),
-      },
-    );
     super.initState();
   }
 

@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,14 +10,14 @@ import 'Screen/Widgets/constant.dart';
 Future<void> main() async {
   final box = GetStorage();
   WidgetsFlutterBinding.ensureInitialized();
-  const firebaseOptions = FirebaseOptions(
-    appId: '1:841347869934:ios:afebb8dd864db5137bd7ff',
-    apiKey: 'AIzaSyDMfqcJPP25tEbIKm43AwsyMqQNqdTslgg',
-    projectId: 'albdex-marchant',
-    messagingSenderId: '841347869934',
-    authDomain: 'albdex-marchant.appspot.com',
-  );
-  await Firebase.initializeApp(name: 'courier', options: firebaseOptions);
+  // const firebaseOptions = FirebaseOptions(
+  //   appId: '1:841347869934:ios:afebb8dd864db5137bd7ff',
+  //   apiKey: 'AIzaSyDMfqcJPP25tEbIKm43AwsyMqQNqdTslgg',
+  //   projectId: 'albdex-marchant',
+  //   messagingSenderId: '841347869934',
+  //   authDomain: 'albdex-marchant.appspot.com',
+  // );
+  // await Firebase.initializeApp(name: 'courier', options: firebaseOptions);
   await GetStorage.init();
   dynamic langValue = const Locale('en', 'US');
   if (box.read('lang') != null) {

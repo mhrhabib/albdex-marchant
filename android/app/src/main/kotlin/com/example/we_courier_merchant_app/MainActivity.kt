@@ -1,4 +1,4 @@
-package marchant.albdex.com
+package com.dnd.merchant
 
 import io.flutter.embedding.android.FlutterActivity
 
