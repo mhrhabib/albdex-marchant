@@ -16,7 +16,6 @@ import '/Screen/Parcel/parcel_index.dart';
 import '/Screen/Shops/shops.dart';
 import '/Screen/delivery_charges.dart';
 import '/utils/image.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -26,11 +25,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:nb_utils/nb_utils.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:get/get.dart';
-
 import '../../Controllers/global-controller.dart';
 import '../../Controllers/language_controller.dart';
 import '../../Models/language_model.dart';
-import '../../utils/style.dart';
 import '../Widgets/constant.dart';
 import '../Widgets/shimmer/dashboard_shimmer.dart';
 import '../cod_charges.dart';

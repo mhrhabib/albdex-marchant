@@ -105,9 +105,7 @@ class ParcelController extends GetxController {
       update();
     });
     parcelLogsList = <ParcelEvents>[];
-    server
-        .getRequest(endPoint: APIList.parcelLogs! + id.toString())
-        .then((response) {
+    server.getRequest(endPoint: APIList.parcelLogs! + id.toString()).then((response) {
       if (response != null && response.statusCode == 200) {
         loaderLogs = false;
         final jsonResponse = json.decode(response.body);
@@ -134,8 +132,7 @@ class ParcelController extends GetxController {
         loader = false;
         final jsonResponse = json.decode(response.body);
         var data = ParcelCrateModel.fromJson(jsonResponse);
-        fragileLiquidAmount.value =
-            double.parse(data.data!.fragileLiquid.toString());
+        fragileLiquidAmount.value = double.parse(data.data!.fragileLiquid.toString());
         print(">>>>>>>>>>>>>>>${fragileLiquidAmount.value}");
         merchantData.value = data.data!.merchant!;
         print(">>merchant value${merchantData.value.codCharges!.insideCity!}");
@@ -193,9 +190,7 @@ class ParcelController extends GetxController {
     Map body = {
       'chargeDetails': jsonEncode(chargeDetails),
       'shop_id': shopID,
-      'weight': deliveryChargesValue.value.weight == '0'
-          ? ''
-          : deliveryChargesValue.value.weight,
+      'weight': deliveryChargesValue.value.weight == '0' ? '' : deliveryChargesValue.value.weight,
       'pickup_phone': pickupPhoneController.text.toString(),
       'pickup_address': pickupAddressController.text.toString(),
       'invoice_no': invoiceController.text.toString(),
@@ -221,9 +216,7 @@ class ParcelController extends GetxController {
     };
     String jsonBody = json.encode(body);
     print(jsonBody);
-    server
-        .postRequestWithToken(endPoint: APIList.parcelStore, body: jsonBody)
-        .then((response) async {
+    server.postRequestWithToken(endPoint: APIList.parcelStore, body: jsonBody).then((response) async {
       print(">>>>>>>>>>>>>>>>>>>${response.statusCode}");
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
@@ -236,10 +229,7 @@ class ParcelController extends GetxController {
         await getParcelList();
 
         Navigator.pop(Get.context!);
-        Get.rawSnackbar(
-            message: "${jsonResponse['message']}",
-            backgroundColor: Colors.green,
-            snackPosition: SnackPosition.TOP);
+        Get.rawSnackbar(message: "${jsonResponse['message']}", backgroundColor: Colors.green, snackPosition: SnackPosition.TOP);
       } else if (response != null && response.statusCode == 422) {
         loaderParcel = false;
         Future.delayed(Duration(milliseconds: 10), () {
@@ -310,80 +300,53 @@ class ParcelController extends GetxController {
 
     // var deliveryChargeAmount = 0.0.obs;
     RxDouble merchantCodCharge = 0.0.obs;
-    print(">>>>>>>>>${merchantData.value.codCharges!.insideCity}");
+    print(">>>>>>>>>${merchantData.value.codCharges!.insideCity.toString()}");
     print(">>>>&&&&${merchantData.value.codCharges!.subCity}");
     print("*********${merchantData.value.codCharges!.outsideCity}");
 
     if (deliveryTypID.value == 'Same Day') {
-      deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.sameDay.toString());
-      merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.insideCity ?? 0.0);
+      deliveryChargeAmount.value = double.parse(deliveryChargesValue.value.sameDay.toString());
+      merchantCodCharge.value = double.parse(merchantData.value.codCharges!.insideCity ?? "0");
     } else if (deliveryTypID.value == 'Next Day') {
-      deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.nextDay.toString());
-      merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.insideCity ?? 0.0);
+      deliveryChargeAmount.value = double.parse(deliveryChargesValue.value.nextDay.toString());
+      merchantCodCharge.value = double.parse(merchantData.value.codCharges!.insideCity ?? "0");
     } else if (deliveryTypID.value == 'Sub City') {
-      deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.subCity ?? 0.0);
-      merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.subCity ?? 0.0);
+      deliveryChargeAmount.value = double.parse(deliveryChargesValue.value.subCity ?? "0");
+      merchantCodCharge.value = double.parse(merchantData.value.codCharges!.subCity ?? "0");
     } else if (deliveryTypID.value == 'Outside City') {
-      deliveryChargeAmount.value =
-          double.parse(deliveryChargesValue.value.outsideCity ?? 0.0);
-      merchantCodCharge.value =
-          double.parse(merchantData.value.codCharges!.outsideCity ?? 0.0);
+      deliveryChargeAmount.value = double.parse(deliveryChargesValue.value.outsideCity ?? "0");
+      merchantCodCharge.value = double.parse(merchantData.value.codCharges!.outsideCity ?? "0");
     } else {
       deliveryChargeAmount.value = 0;
       merchantCodCharge.value = 0;
     }
     packagingAmount.value = double.parse(packagingPrice.toString());
-    totalCashCollection.value =
-        double.parse(cashCollectionController.text.toString());
-    codChargeAmount.value =
-        percentage(totalCashCollection.value, merchantCodCharge.value);
+    totalCashCollection.value = double.parse(cashCollectionController.text.toString());
+    codChargeAmount.value = percentage(totalCashCollection.value, merchantCodCharge.value);
     print(totalCashCollection.value);
     print(merchantCodCharge.value);
     if (isLiquidChecked) {
-      totalDeliveryChargeAmount.value = (deliveryChargeAmount.value +
-          codChargeAmount.value +
-          fragileLiquidAmount.value +
-          packagingAmount.value);
+      totalDeliveryChargeAmount.value = (deliveryChargeAmount.value + codChargeAmount.value + fragileLiquidAmount.value + packagingAmount.value);
       fragileLiquidAmounts.value = fragileLiquidAmount.value;
     } else {
-      totalDeliveryChargeAmount.value = (deliveryChargeAmount.value +
-          codChargeAmount.value +
-          packagingAmount.value);
+      totalDeliveryChargeAmount.value = (deliveryChargeAmount.value + codChargeAmount.value + packagingAmount.value);
       fragileLiquidAmounts.value = 0;
     }
 
     vatAmount.value = percentage(totalDeliveryChargeAmount.value, vatTax.value);
     netPayable.value = (totalDeliveryChargeAmount.value + vatAmount.value);
-    currentPayable.value = (totalCashCollection.value -
-        (totalDeliveryChargeAmount.value + vatAmount.value));
+    currentPayable.value = (totalCashCollection.value - (totalDeliveryChargeAmount.value + vatAmount.value));
     merchantCodCharges.value = merchantCodCharge.value;
     print('packagingAmount==> ' + '${packagingAmount.value}');
     print('deliveryChargeAmount==> ' + '${deliveryChargeAmount.value}');
-    print(
-        'totalDeliveryChargeAmount==> ' + '${totalDeliveryChargeAmount.value}');
+    print('totalDeliveryChargeAmount==> ' + '${totalDeliveryChargeAmount.value}');
     print('totalCashCollection==> ' + '${totalCashCollection.value}');
     print('vatAmount==> ' + '${vatAmount.value}');
     print('codChargeAmount==> ' + '${codChargeAmount.value}');
     print('netPayable==> ' + '${netPayable.value}');
     print('currentPayable==> ' + '${currentPayable.value}');
 
-    showPopUp(
-        context,
-        totalCashCollection,
-        deliveryChargeAmount,
-        codChargeAmount,
-        fragileLiquidAmounts,
-        packagingAmount,
-        totalDeliveryChargeAmount,
-        vatAmount,
-        netPayable,
-        currentPayable);
+    showPopUp(context, totalCashCollection, deliveryChargeAmount, codChargeAmount, fragileLiquidAmounts, packagingAmount, totalDeliveryChargeAmount, vatAmount, netPayable, currentPayable);
     Future.delayed(Duration(milliseconds: 10), () {
       update();
     });
@@ -393,17 +356,7 @@ class ParcelController extends GetxController {
     return totalAmount * (percentageAmount / 100);
   }
 
-  void showPopUp(
-      context,
-      totalCashCollectionParcel,
-      deliveryChargeAmountParcel,
-      codChargeAmountParcel,
-      fragileLiquidAmountsParcel,
-      packagingAmountParcel,
-      totalDeliveryChargeAmountParcel,
-      vatAmountParcel,
-      netPayableParcel,
-      currentPayableParcel) {
+  void showPopUp(context, totalCashCollectionParcel, deliveryChargeAmountParcel, codChargeAmountParcel, fragileLiquidAmountsParcel, packagingAmountParcel, totalDeliveryChargeAmountParcel, vatAmountParcel, netPayableParcel, currentPayableParcel) {
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -420,33 +373,23 @@ class ParcelController extends GetxController {
                 children: [
                   Text(
                     'charge_details'.tr,
-                    style: kTextStyle.copyWith(
-                        color: kSecondaryColor,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold),
+                    style: kTextStyle.copyWith(color: kSecondaryColor, fontSize: 18.0, fontWeight: FontWeight.bold),
                   ),
                   ListTile(
                     title: Text(
                       'title'.tr,
-                      style: kTextStyle.copyWith(
-                          color: kTitleColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0),
+                      style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold, fontSize: 16.0),
                     ),
                     trailing: Text(
                       'amount_tk'.tr,
-                      style: kTextStyle.copyWith(
-                          color: kTitleColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0),
+                      style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold, fontSize: 16.0),
                     ),
                   ),
                   Card(
                     child: ListTile(
                       title: Text(
                         'cash_collection'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${totalCashCollectionParcel}',
@@ -458,8 +401,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'delivery_charges'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${deliveryChargeAmountParcel}',
@@ -471,8 +413,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'cod_charge'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${codChargeAmountParcel}',
@@ -484,8 +425,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'liquid_fragile_charge'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${fragileLiquidAmountsParcel}',
@@ -497,8 +437,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'p_charge'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${packagingAmountParcel}',
@@ -510,8 +449,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'total_charge'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${totalDeliveryChargeAmountParcel}',
@@ -523,8 +461,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'vat'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${vatAmountParcel}',
@@ -536,8 +473,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'net_payable'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${netPayableParcel}',
@@ -549,8 +485,7 @@ class ParcelController extends GetxController {
                     child: ListTile(
                       title: Text(
                         'current_payable'.tr,
-                        style: kTextStyle.copyWith(
-                            color: kTitleColor, fontWeight: FontWeight.bold),
+                        style: kTextStyle.copyWith(color: kTitleColor, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
                         '${currentPayableParcel}',
